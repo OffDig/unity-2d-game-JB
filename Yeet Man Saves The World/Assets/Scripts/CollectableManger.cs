@@ -24,15 +24,16 @@ public class CollectableManger : MonoBehaviour
     void DisplayCoinCount()
     {
         coinCount.SetText(_collectedCoins + " / " + _totalCoins);
-        if(_collectedCoins >= _totalCoins)
-        {
-            coinCount.SetText("You Win!");
-        }
+        
     }
 
     public void HandleCoinCollected()
     {
         _collectedCoins++;
         DisplayCoinCount();
+        if (_collectedCoins >= _totalCoins)
+        {
+            YouWinMenu.Instance.Show();
+        }
     }
 }
